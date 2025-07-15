@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🔐 Image Encryption Tool</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            color: #00ffcc;
+        }
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            background: #2a2a2a;
+            width: 400px;
+        }
+        input[type="file"],
+        input[type="submit"] {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            width: 90%;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            background: #00c896;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #00a17d;
+        }
+        .section-title {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #ffdd57;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔐 Image Encryption & Decryption Tool</h1>
+
+    <form action="/encrypt" method="post" enctype="multipart/form-data">
+        <div class="section-title">Encrypt Image</div>
+        <label for="encrypt-image">Select image to encrypt:</label>
+        <input type="file" name="image" id="encrypt-image" accept="image/*" required>
+        <input type="submit" value="Encrypt & Download Image + Key (.zip)">
+    </form>
+
+    <form action="/decrypt" method="post" enctype="multipart/form-data">
+        <div class="section-title">Decrypt Image</div>
+        <label for="decrypt-image">Select encrypted image (.png):</label>
+        <input type="file" name="image" id="decrypt-image" accept="image/*" required>
+
+        <label for="key-file">Select the associated .key file:</label>
+        <input type="file" name="key" id="key-file" accept=".key" required>
+
+        <input type="submit" value="Decrypt & Download Image">
+    </form>
+</body>
+</html>
